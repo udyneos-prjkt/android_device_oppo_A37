@@ -326,7 +326,7 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    LenovoDoze
+    OppoDoze
 
 # FM
 PRODUCT_PACKAGES += \
@@ -602,7 +602,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.swap_free_low_percentage=15
 
 # Inherit customized Android Go defaults.
-$(call inherit-product, device/lenovo/a6010/go_defaults_custom.mk)
+$(call inherit-product, device/oppo/A37/go_defaults_custom.mk)
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
@@ -710,7 +710,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.a6010
+    vendor.lineage.touch@1.0-service.A37
 
 # AOSP filesystems
 PRODUCT_PACKAGES += \
@@ -750,4 +750,4 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_default.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
-$(call inherit-product, vendor/lenovo/a6010/a6010-vendor.mk)
+$(call inherit-product, vendor/oppo/A37/A37-vendor.mk)

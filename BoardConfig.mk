@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE_PATH := device/lenovo/a6010
+DEVICE_PATH := device/oppo/A37
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
@@ -38,20 +38,20 @@ TARGET_CPU_FEATURES := div,atomic_ldrd_strd
 TARGET_USES_64_BIT_BINDER := true
 
 # Kernel
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk ramoops.mem_address=0x9ff00000 ramoops.mem_size=0x400000 ramoops.record_size=0x40000
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 loop.max_part=16 pm.sleep_mode=1 vmalloc=400M  androidboot.memcg=true
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-TARGET_KERNEL_SOURCE := kernel/lenovo/a6010
-TOP_PATH := $(realpath $(TOP))
-KERNEL_TOOLCHAIN := $(TOP_PATH)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi/bin
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-len-linux-gnueabi-
-TARGET_KERNEL_CONFIG := lineageos_a6010_defconfig
-TARGET_HAS_MEMFD_BACKPORT := true
-TARGET_KERNEL_ADDITIONAL_FLAGS := \
-    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_MKBOOTIMG_ARGS += --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+BOARD_KERNEL_IMAGE_NAME := Image
+TARGET_KERNEL_SOURCE := kernel/oppo/msm8939
+BOARD_KERNEL_SEPARATED_DT := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_CUSTOM_DTBTOOL := dtbToolOppo
+TARGET_KERNEL_CONFIG := lineageos_a37f_defconfig
 
 # Ramdisk compression
 BOARD_RAMDISK_USE_XZ := true
@@ -196,4 +196,4 @@ TARGET_TAP_TO_WAKE_NODE := /sys/android_touch/doubletap2wake
 DISABLE_APEX_TEST_MODULE := true
 
 # Proprietary Prebuilt
--include vendor/lenovo/a6010/BoardConfigVendor.mk
+-include vendor/oppo/A37/BoardConfigVendor.mk

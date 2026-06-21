@@ -15,38 +15,32 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
-$(call inherit-product, device/lenovo/a6010/device.mk)
+$(call inherit-product, device/oppo/A37/device.mk)
 $(call inherit-product, vendor/lineage/config/common_mini_go_phone.mk)
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := a37f,A37f,A37fw,a37fw,msm8916,msm8939
 
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := Kraft-T,a6000,K30-T,A6000,Kraft-W,Kraft-C,k30t,msm8916,Kraft-A6000,wt86518,a6010
-
-TARGET_VENDOR := Lenovo
-PRODUCT_DEVICE := a6010
-PRODUCT_NAME := lineage_a6010
-BOARD_VENDOR := Lenovo
-PRODUCT_BRAND := Lenovo
-PRODUCT_MODEL := A6010
-PRODUCT_MANUFACTURER := Lenovo
-
-# Device Identifiers
-PRODUCT_BUILD_PROP_OVERRIDES += \
-     PRODUCT_MODEL="Lenovo A6010" \
-     PRODUCT_NAME="A6010" \
-     PRODUCT_DEVICE="A6010"
-
+TARGET_VENDOR := Oppo
+PRODUCT_DEVICE := A37
+PRODUCT_NAME := lineage_A37
+BOARD_VENDOR := Oppo
+PRODUCT_BRAND := Oppo
+PRODUCT_MODEL := A37
+PRODUCT_MANUFACTURER := Oppo
 
 # Build fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="A6010-user 5.0.2 LRX22G A6010_S045_170622_16G_ROW release-keys"
+    PRIVATE_BUILD_DESC="msm8916_64-user 5.1.1 LMY47V eng.root.20190711.032745 release-keys" \
+    TARGET_DEVICE="A37f"
 
-BUILD_FINGERPRINT := Lenovo/A6010/A6010:5.0.2/LRX22G/A6010_S045_170622_16G_ROW:user/release-keys
+BUILD_FINGERPRINT := OPPO/A37fw/A37f:5.1.1/LMY47V/1519717163:user/release-keys
 
 # GMS
-PRODUCT_GMS_CLIENTID_BASE := android-lenovo
+PRODUCT_GMS_CLIENTID_BASE := android-oppo
 
 # Trust
 PRODUCT_PACKAGES += \

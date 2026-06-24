@@ -17,5 +17,5 @@ Rear Camera  | 8 MP, f/2.0, 1/3.2", 1.4µm, AF
 Front Camera | 5 MP, f/2.4, 1/4"
 Release Date | June 2016
 
-![oppo a37](https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a37-1.jpg)
+![lenovo a6000](https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a37-1.jpg)
 

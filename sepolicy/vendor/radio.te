@@ -1,2 +1,0 @@
-get_prop(radio, bluetooth_prop)
-allow radio gpuservice:binder call;

@@ -1,1 +1,0 @@
-allow rs surfaceflinger:unix_stream_socket { read write };

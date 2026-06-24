@@ -9,38 +9,6 @@ LOCAL_SRC_FILES    := etc/set_baseband.sh
 LOCAL_VENDOR_MODULE    := true
 include $(BUILD_PREBUILT)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE       := set_zram.sh
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := EXECUTABLES
-LOCAL_SRC_FILES    := etc/set_zram.sh
-LOCAL_VENDOR_MODULE    := true
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := init.boot_boost.sh
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := EXECUTABLES
-LOCAL_SRC_FILES    := etc/init.boot_boost.sh
-LOCAL_VENDOR_MODULE    := true
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := fde_ext4_resize.sh
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := EXECUTABLES
-LOCAL_SRC_FILES    := etc/fde_ext4_resize.sh
-LOCAL_VENDOR_MODULE    := true
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := target_config.sh
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := EXECUTABLES
-LOCAL_SRC_FILES    := etc/target_config.sh
-LOCAL_VENDOR_MODULE    := true
-include $(BUILD_PREBUILT)
-
 # Init scripts
 include $(CLEAR_VARS)
 LOCAL_MODULE       := fstab.qcom

@@ -43,40 +43,42 @@ PRODUCT_PACKAGES += \
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.composition.type=c2d \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
-    ro.surface_flinger.vsync_event_phase_offset_ns=5000000 \
-    ro.surface_flinger.vsync_sf_event_phase_offset_ns=7500000 \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=1 \
+    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.has_HDR_display=false \
+    ro.surface_flinger.has_wide_color_display=false \
+    ro.surface_flinger.start_graphics_allocator_service=true \
+    ro.surface_flinger.use_context_priority=true \
     debug.mdpcomp.idletime=600 \
     persist.hwc.mdpcomp.enable=true \
     persist.hwc.ptor.enable=true \
-    pm.dexopt.shared=quicken \
-    pm.dexopt.downgrade_after_inactive_days=10 \
     debug.enable.sglscale=1 \
     debug.sf.hw=1 \
-    debug.hwui.renderer=opengl \
     debug.egl.hw=1 \
-    debug.sf.disable_hwc=0 \
-    debug.sf.recomputecrop=0 \
     debug.sf.disable_backpressure=1 \
-    debug.sf.latch_unsignaled=1 \
+    debug.sf.enable_gl_backpressure=1 \
+    debug.sf.recomputecrop=0 \
     debug.cpurend.vsync=false \
-    persist.hwc.mdpcomp.enable=true \
-    persist.hwc.ptor.enable=true \
-    debug.sf.gpu_comp_tiling=1 \
-    debug.performance.tuning=1 \
-    video.accelerate.hw=1
+    ro.config.avoid_gfx_accel=true \
+    DEVICE_PROVISIONED=1 \
+    ro.com.android.mobiledata=false \
+    dev.pm.dyn_samplingrate=1 \
+    persist.timed.enable=true \
+    ro.hardware.egl=adreno \
+    ro.surface_flinger.supports_background_blur=false \
+    persist.sys.sf.disable_blurs=true \
+    sys.use_fifo_ui=1
 
 # Screen density
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=280 \
-    persist.graphics.vulkan.disable=true \
-    persist.dbg.ims_volte_enable=1 \
-    persist.dbg.volte_avail_ovr=1 
+    persist.graphics.vulkan.disable=true
 
 # Disable buffer age
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.use_buffer_age=false
+    persist.dbg.ims_volte_enable=1 \
+    persist.dbg.volte_avail_ovr=1 
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -323,6 +325,27 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libOmxVidcCommon \
     libstagefrighthw
+    
+# Memory optimizations
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.sys.fw.bservice_enable=true \
+    ro.vendor.qti.sys.fw.bservice_limit=5 \
+    ro.vendor.qti.sys.fw.bservice_age=5000 \
+    ro.vendor.qti.sys.fw.use_trim_settings=true \
+    ro.vendor.qti.sys.fw.empty_app_percent=50 \
+    ro.vendor.qti.sys.fw.trim_empty_percent=100 \
+    ro.vendor.qti.sys.fw.trim_cache_percent=100 \
+    ro.config.max_starting_bg=1
+
+# Dexopt
+PRODUCT_PROPERTY_OVERRIDES += \
+    pm.dexopt.first-boot=quicken \
+    pm.dexopt.boot=extract
+
+# Boot
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.vendor.shutdown.waittime=500 \
+    ro.build.shutdown_timeout=0
 
 # Media config
 PRODUCT_COPY_FILES += \
@@ -554,5 +577,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.usb.id.ums=2286 \
     ro.usb.id.ums_adb=2285 \
     ro.usb.vid=2970
-
+# Inherit customized Android Go defaults.
+$(call inherit-product, device/oppo/A37/go_defaults_custom.mk)
 $(call inherit-product, vendor/oppo/A37/A37-vendor.mk)

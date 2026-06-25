@@ -19,6 +19,11 @@ cc_binary {
     init_rc: ["android.hardware.light@2.0-service.oppo_msm8916.rc"],
     srcs: ["service.cpp", "Light.cpp"],
     vendor: true,
+    visibility: [
+        "//device/oppo/A37/lights",
+        "//system/libhidl",
+        "//system/libhwbinder",
+    ],
     shared_libs: [
         "libbase",
         "libhardware",
